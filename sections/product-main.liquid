@@ -1,0 +1,20 @@
+<section class="product-main">
+  <div class="product-main__container">
+    <div class="product-main__gallery">
+      {% for image in product.images %}{{ image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'product-main__image' }}{% endfor %}
+    </div>
+    <div class="product-main__info">
+      <h1>{{ product.title }}</h1>
+      <div class="product-main__price">{{ product.price | money }}</div>
+      {% form 'product', product %}
+        <select name="id">{% for variant in product.variants %}<option value="{{ variant.id }}" {% unless variant.available %}disabled{% endunless %}>{{ variant.title }} - {{ variant.price | money }}</option>{% endfor %}</select>
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="btn btn--primary btn--full" {% unless product.available %}disabled{% endunless %}>{% if product.available %}Add to Cart{% else %}Sold Out{% endif %}</button>
+      {% endform %}
+      <div class="rte">{{ product.description }}</div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Product Main","blocks":[{"type":"metafield","name":"Metafield","settings":[{"type":"text","id":"namespace","label":"Namespace"},{"type":"text","id":"key","label":"Key"},{"type":"text","id":"label","label":"Label"}]}]}
+{% endschema %}

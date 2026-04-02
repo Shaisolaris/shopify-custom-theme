@@ -1,0 +1,22 @@
+<header class="site-header" data-section-id="{{ section.id }}">
+  <div class="header__container">
+    <a href="/" class="header__logo">
+      {% if section.settings.logo %}
+        {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
+      {% else %}
+        <span>{{ shop.name }}</span>
+      {% endif %}
+    </a>
+    <nav class="header__nav">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}" class="nav__link{% if link.active %} nav__link--active{% endif %}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+    <div class="header__actions">
+      <a href="/cart" class="header__cart">Cart ({{ cart.item_count }})</a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{"name":"Header","settings":[{"type":"image_picker","id":"logo","label":"Logo"},{"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},{"type":"checkbox","id":"sticky_header","label":"Sticky header","default":true},{"type":"color","id":"bg_color","label":"Background","default":"#ffffff"}]}
+{% endschema %}
