@@ -1,0 +1,16 @@
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="product-card__image-wrapper">
+      {% if product.featured_image %}{{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'product-card__image' }}{% endif %}
+      {% if product.compare_at_price > product.price %}<span class="product-card__badge badge--sale">Sale</span>{% endif %}
+    </div>
+    <div class="product-card__info">
+      {% if show_vendor %}<span class="product-card__vendor">{{ product.vendor }}</span>{% endif %}
+      <h3 class="product-card__title">{{ product.title }}</h3>
+      <div class="product-card__price">
+        {% if product.compare_at_price > product.price %}<span class="price--compare">{{ product.compare_at_price | money }}</span>{% endif %}
+        <span class="price--current">{{ product.price | money }}</span>
+      </div>
+    </div>
+  </a>
+</div>
