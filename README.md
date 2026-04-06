@@ -1,5 +1,7 @@
 # shopify-custom-theme
 
+![CI](https://github.com/Shaisolaris/shopify-custom-theme/actions/workflows/ci.yml/badge.svg)
+
 Shopify OS 2.0 custom theme with JSON templates, dynamic sections with schema-driven settings, metafield support via configurable blocks, responsive product grid, hero banner with overlay controls, featured collection with column settings, product page with variant selector, sticky header with navigation, newsletter footer, and theme-level color/typography settings with font picker.
 
 ## Stack
