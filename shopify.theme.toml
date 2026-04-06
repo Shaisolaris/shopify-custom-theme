@@ -1,0 +1,7 @@
+[environments.development]
+store = "your-store.myshopify.com"
+theme_access_password = ""
+
+[environments.production]
+store = "your-store.myshopify.com"
+theme_access_password = ""
