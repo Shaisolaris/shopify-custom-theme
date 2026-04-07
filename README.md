@@ -6,6 +6,9 @@
 ![CI](https://github.com/Shaisolaris/shopify-custom-theme/actions/workflows/ci.yml/badge.svg)
 
 
+
+Shopify OS 2.0 custom theme with 5 dynamic sections, JSON templates, schema-driven settings, metafield blocks, and responsive product grid.
+
 ## Quick Start
 
 ```bash
